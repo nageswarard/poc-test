@@ -2,9 +2,10 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Git-checkout') {
             steps {
-                echo 'Building..'
+                echo 'start checkout..'
+                git branch: 'main', credentialsId: 'github-p', url: 'https://github.com/nageswarard/poc-test.git'
             }
         }
         stage('Test') {
